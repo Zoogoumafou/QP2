@@ -1,0 +1,44 @@
+{
+  "config": {
+    "version": "0",
+    "sites": [
+      {
+        "name": "Local Area Network",
+        "network": {
+          "address": "192.168.159.0",
+          "netmask": "255.255.255.0",
+          "gateway": "192.168.159.139"
+        },
+        "ips": [
+          {
+            "name": "GTW",
+            "address": "192.168.159.139"
+          }
+        ]
+      },
+      {
+        "name": "ZeroTier One Network QS-NET",
+        "network": {
+          "address": "172.26.0.0",
+          "netmask": "255.255.0.0",
+          "gateway": "225.255.255.254"
+        },
+        "ips": [
+          {
+            "name": "DEV2",
+            "address": "172.26.0.2"
+          }
+        ]
+      },
+      {
+        "name": "Wide Area Network",
+        "ips": [
+          {
+            "name": "Google DNS",
+            "address": "8.8.8.8"
+          }
+        ]
+      }
+    ]
+  }
+}
