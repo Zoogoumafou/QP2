@@ -11,7 +11,7 @@ namespace QuickPing2.Utils
         public List<Host> hosts = new List<Host>();
         public List<Site> JsonToList() // Convert Json file to List Object
         {
-            JObject? o1 = JObject.Parse(File.ReadAllText(@"C:\Users\lagac\source\repos\Quick Ping\Config\ips.json"));
+            JObject? o1 = JObject.Parse(File.ReadAllText("Config/ips.json"));
             foreach (JToken site in o1["config"]["sites"])
             {
 

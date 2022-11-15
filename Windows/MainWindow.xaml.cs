@@ -1,16 +1,10 @@
-﻿using System;
+﻿using QuickPing2;
+using QuickPing2.Classs;
+using QuickPing2.Utils;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace QuickPing2.Windows
 {
@@ -19,9 +13,24 @@ namespace QuickPing2.Windows
     /// </summary>
     public partial class MainWindow : Window
     {
+
+       
+
+
         public MainWindow()
         {
+             JSONHanlder sites = new JSONHanlder();
+             List<Site> sitesList = sites.JsonToList();
+
             InitializeComponent();
+            foreach (Site site in sitesList)
+            {
+                for (int i = 0; i < site.Hosts.Count; i++)
+                {
+                    Host host = site.Hosts[i];
+                    Debug.WriteLine($"{site.Name} has the host {host.Name} with address of {host.Address}");
+                }
+            }
         }
     }
 }
