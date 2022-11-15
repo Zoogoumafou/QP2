@@ -9,8 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="pages\**" />
+    <EmbeddedResource Remove="pages\**" />
+    <None Remove="pages\**" />
+    <Page Remove="pages\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Assets\" />
-    <Folder Include="Pages\" />
   </ItemGroup>
 
   <ItemGroup>
