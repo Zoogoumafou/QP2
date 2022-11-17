@@ -17,6 +17,8 @@
             </Button>
         </mah:WindowCommands>
     </mah:MetroWindow.LeftWindowCommands>
+    
+    
 
     <Grid>
         <Grid.ColumnDefinitions>

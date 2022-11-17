@@ -1,8 +1,11 @@
 ﻿using QuickPing2.Classs;
 using System.Windows;
 using System.Collections.Generic;
-using QuickPing2.Utils;
+using QuickPing2.Threads;
 using System.Diagnostics;
+using System.Threading.Tasks;
+using System;
+using System.Threading;
 
 namespace QuickPing2
 {
@@ -14,9 +17,12 @@ namespace QuickPing2
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            
 
+          
         }
 
+      
     }
+
+   
 }
