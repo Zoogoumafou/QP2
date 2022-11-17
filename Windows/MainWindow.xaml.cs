@@ -16,6 +16,7 @@ namespace QuickPing2.Windows
     {
         public MainWindow()
         {
+            InitializeComponent();
             
         }
     }

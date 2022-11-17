@@ -17,7 +17,7 @@ namespace QuickPing2
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-
+            Threads.PingThread.DoWork();
           
         }
 
