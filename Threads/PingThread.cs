@@ -16,33 +16,21 @@ namespace QuickPing2.Threads
        public static void DoWork()
         {
             List<Site> allSites = Globals.GobalListSites.allSites;
-            
-            for (int iy = 0; iy < allSites.Count; iy++)
-            {
-                Site site = allSites[iy];
-                Debug.WriteLine($"From For One");
-                for (int ix = 0; ix < site.Hosts.Count; ix++)
-                {
-                    Debug.WriteLine($"From For Two");
-                    Host host = site.Hosts[ix];
-                    string address = host.Address;
-                    Debug.WriteLine($"{site.Name} host {host.Address}");
-                    var TT = new Thread(() =>
+
+            allSites.ForEach(site => {
+                site.Hosts.ForEach(host => {
+
+                    var BGPing = new Thread(() =>
                     {
-
-                        Thread.CurrentThread.IsBackground = true;
-                        Debug.WriteLine($" ------- Hey, I'm from background thread for IP: {address}");
-                        BackgroundPing(iy, ix, address);
-                        
+                        Debug.WriteLine($"Starting BGPing for {host.Name}@{host.Address} in {site.Name}");
+                        BackgroundPing(host.Address, site.Name);
                     });
-
-                    TT.Start();
-                }
-                
-            }
+                    BGPing.Start();
+                });
+            });
         }
         
-       public static void BackgroundPing(int indexY, int indexX, string address)
+       public static void BackgroundPing(string address, string siteName)
         {
             while (true)
             {
@@ -55,16 +43,20 @@ namespace QuickPing2.Threads
                 int timeout = 120;
 
                 PingReply reply = pingSender.Send(address, timeout, buffer, options);
-
+                
+                int indexSite = Globals.GobalListSites.allSites.FindIndex(x => x.Name == siteName);
+                int indexHost = Globals.GobalListSites.allSites[indexSite].Hosts.FindIndex(x => x.Address == address);
+                
                 if (reply.Status == IPStatus.Success)
                 {
-                    //Debug.WriteLine($"{address} reply");
-                  
-
+                    Globals.GobalListSites.allSites[indexSite].Hosts[indexHost].LastSucces = DateTime.Now.ToString("h:mm:ss tt");
+                    Globals.GobalListSites.allSites[indexSite].Hosts[indexHost].Status = "Reachable";
+                    
                 }
                 else
                 {
-                    // Debug.WriteLine($"{address} do not reply");
+                    Globals.GobalListSites.allSites[indexSite].Hosts[indexHost].LastFail = DateTime.Now.ToString("h:mm:ss tt");
+                    Globals.GobalListSites.allSites[indexSite].Hosts[indexHost].Status = "Not Reachable";
                    
                 }
             }
