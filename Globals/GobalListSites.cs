@@ -9,8 +9,8 @@ namespace QuickPing2.Globals
 
     public static class GobalListSites
     {
-        static JSONHanlder sites = new JSONHanlder();
-        static public  List<Site> allSites = sites.JsonToList();
+        
+        static public List<Site> allSites;
 
     }
 }

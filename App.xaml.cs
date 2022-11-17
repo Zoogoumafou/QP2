@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using System;
 using System.Threading;
+using QuickPing2.Utils;
 
 namespace QuickPing2
 {
@@ -17,8 +18,9 @@ namespace QuickPing2
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            JSONHanlder.JsonToList();
             Threads.PingThread.DoWork();
-          
+
         }
 
       

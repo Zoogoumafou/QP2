@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net;
 using System.Net.NetworkInformation;
 using System.Runtime.CompilerServices;
 using System.Runtime.ExceptionServices;
@@ -15,24 +16,29 @@ namespace QuickPing2.Threads
        public static void DoWork()
         {
             List<Site> allSites = Globals.GobalListSites.allSites;
-            int iy = 0;
-            foreach (Site site in allSites)
+            
+            for (int iy = 0; iy < allSites.Count; iy++)
             {
-                iy++;
+                Site site = allSites[iy];
+                Debug.WriteLine($"From For One");
                 for (int ix = 0; ix < site.Hosts.Count; ix++)
                 {
+                    Debug.WriteLine($"From For Two");
                     Host host = site.Hosts[ix];
                     string address = host.Address;
-
-                    new Thread(() =>
+                    Debug.WriteLine($"{site.Name} host {host.Address}");
+                    var TT = new Thread(() =>
                     {
 
                         Thread.CurrentThread.IsBackground = true;
+                        Debug.WriteLine($" ------- Hey, I'm from background thread for IP: {address}");
                         BackgroundPing(iy, ix, address);
-                        Console.WriteLine($"Hey, I'm from background thread for IP: {address}");
-                    }).Start();
+                        
+                    });
 
+                    TT.Start();
                 }
+                
             }
         }
         
@@ -53,15 +59,13 @@ namespace QuickPing2.Threads
                 if (reply.Status == IPStatus.Success)
                 {
                     //Debug.WriteLine($"{address} reply");
-                    Globals.GobalListSites.allSites[indexY].Hosts[indexX].Status = "Connected";
-                    Globals.GobalListSites.allSites[indexY].Hosts[indexX].LastSucces = DateTime.Now.ToString("h:mm:ss tt");
+                  
 
                 }
                 else
                 {
                     // Debug.WriteLine($"{address} do not reply");
-                    Globals.GobalListSites.allSites[indexY].Hosts[indexX].Status = "Not Connected";
-                    Globals.GobalListSites.allSites[indexY].Hosts[indexX].LastFail = DateTime.Now.ToString("h:mm:ss tt");
+                   
                 }
             }
         }
