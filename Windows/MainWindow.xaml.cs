@@ -19,6 +19,11 @@ namespace QuickPing2.Windows
             InitializeComponent();
             
         }
+        
+        public void HamburgerMenuControl_OnItemInvoked(object sender, HamburgerMenuItemInvokedEventArgs e)
+        {
+           
+        }
     }
     
 }
