@@ -80,8 +80,8 @@
                           HamburgerWidth="48"
                           ItemInvoked="HamburgerMenuControl_OnItemInvoked"
                           ItemTemplate="{StaticResource HamburgerMenuItem}"
-                          OptionsItemTemplate="{StaticResource HamburgerOptionsMenuItem}"
-                          
+                          OptionsItemTemplate="{StaticResource HamburgerOptionsMenuItem}">
+
             <!--  Header  -->
             <Controls:HamburgerMenu.HamburgerMenuHeaderTemplate>
                 <DataTemplate>
