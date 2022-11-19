@@ -83,7 +83,8 @@
                           HamburgerWidth="48"
                           ItemInvoked="HamburgerMenuControl_OnItemInvoked"
                           ItemTemplate="{StaticResource HamburgerMenuItem}"
-                          OptionsItemTemplate="{StaticResource HamburgerOptionsMenuItem}">
+                          OptionsItemTemplate="{StaticResource HamburgerOptionsMenuItem}"
+                          Style="{StaticResource MahApps.Styles.HamburgerMenu.CreatorsUpdate}">
 
             <!--  Header  -->
             <Controls:HamburgerMenu.HamburgerMenuHeaderTemplate>
@@ -91,7 +92,7 @@
                     <TextBlock HorizontalAlignment="Left"
                    VerticalAlignment="Center"
                    FontSize="16"
-                   Foreground="White"
+                   Foreground="Black"
                    Text="Menu" />
                 </DataTemplate>
             </Controls:HamburgerMenu.HamburgerMenuHeaderTemplate>
@@ -174,16 +175,6 @@
                             <RowDefinition Height="48" />
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                        <Border Grid.Row="0"
-                  Margin="-1 0 -1 0"
-                  Background="#7A7A7A">
-                            <TextBlock x:Name="Header"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       FontSize="24"
-                       Foreground="White"
-                       Text="{Binding Label}" />
-                        </Border>
                         <Controls:TransitioningContentControl Grid.Row="1"
                                                 Content="{Binding}"
                                                 RestartTransitionOnContentChange="True"
