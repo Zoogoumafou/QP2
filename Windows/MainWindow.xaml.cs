@@ -24,6 +24,11 @@ namespace QuickPing2.Windows
         {
            
         }
+
+        private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            App.Current.Shutdown();
+        }
     }
     
 }

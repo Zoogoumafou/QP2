@@ -8,7 +8,8 @@
         mc:Ignorable="d"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-        Title="Quick Ping" Height="450" Width="800">
+        Title="Quick Ping" Height="450" Width="800"
+        Closing="MetroWindow_Closing">
 
     <Controls:MetroWindow.Resources>
         <ResourceDictionary>
@@ -87,11 +88,11 @@
             <!--  Header  -->
             <Controls:HamburgerMenu.HamburgerMenuHeaderTemplate>
                 <DataTemplate>
-                    <TextBlock HorizontalAlignment="Center"
+                    <TextBlock HorizontalAlignment="Left"
                    VerticalAlignment="Center"
                    FontSize="16"
                    Foreground="White"
-                   Text="Pictures" />
+                   Text="Menu" />
                 </DataTemplate>
             </Controls:HamburgerMenu.HamburgerMenuHeaderTemplate>
 
@@ -99,20 +100,40 @@
             <Controls:HamburgerMenu.ItemsSource>
                 <Controls:HamburgerMenuItemCollection>
 
-                    <Controls:HamburgerMenuIconItem Label="About">
+                    <Controls:HamburgerMenuIconItem Label="Dashboard">
                         <Controls:HamburgerMenuIconItem.Icon>
-                            <iconPacks:PackIconMaterial Width="22"
+                            <iconPacks:PackIconCoolicons 
+                                        Kind="Dashboard" 
+                                        Width="22"
                                         Height="22"
                                         HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Kind="Help" />
+                                        VerticalAlignment="Center"/>
                         </Controls:HamburgerMenuIconItem.Icon>
                         <Controls:HamburgerMenuIconItem.Tag>
                             <TextBlock HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontSize="28"
                        FontWeight="Bold">
-                About
+                Dashboard
+                            </TextBlock>
+                        </Controls:HamburgerMenuIconItem.Tag>
+                    </Controls:HamburgerMenuIconItem>
+
+                    <Controls:HamburgerMenuIconItem Label="History">
+                        <Controls:HamburgerMenuIconItem.Icon>
+                            <iconPacks:PackIconCodicons 
+                                        Kind="History" 
+                                        Width="22"
+                                        Height="22"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"/>
+                        </Controls:HamburgerMenuIconItem.Icon>
+                        <Controls:HamburgerMenuIconItem.Tag>
+                            <TextBlock HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="28"
+                       FontWeight="Bold">
+                History
                             </TextBlock>
                         </Controls:HamburgerMenuIconItem.Tag>
                     </Controls:HamburgerMenuIconItem>
@@ -124,20 +145,20 @@
             <Controls:HamburgerMenu.OptionsItemsSource>
                 <Controls:HamburgerMenuItemCollection>
 
-                    <Controls:HamburgerMenuIconItem Label="About">
+                    <Controls:HamburgerMenuIconItem Label="Setting">
                         <Controls:HamburgerMenuIconItem.Icon>
                             <iconPacks:PackIconMaterial Width="22"
                                         Height="22"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
-                                        Kind="Help" />
+                                        Kind="Cog" />
                         </Controls:HamburgerMenuIconItem.Icon>
                         <Controls:HamburgerMenuIconItem.Tag>
                             <TextBlock HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontSize="28"
                        FontWeight="Bold">
-                About
+                Setting
                             </TextBlock>
                         </Controls:HamburgerMenuIconItem.Tag>
                     </Controls:HamburgerMenuIconItem>
