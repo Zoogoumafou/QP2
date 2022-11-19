@@ -40,7 +40,7 @@ namespace QuickPing2.Threads
                 options.DontFragment = true;
                 string data = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
                 byte[] buffer = Encoding.ASCII.GetBytes(data);
-                int timeout = 120;
+                int timeout = 1500;
 
                 PingReply reply = pingSender.Send(address, timeout, buffer, options);
                 
@@ -51,13 +51,15 @@ namespace QuickPing2.Threads
                 {
                     Globals.GobalListSites.allSites[indexSite].Hosts[indexHost].LastSucces = DateTime.Now.ToString("h:mm:ss tt");
                     Globals.GobalListSites.allSites[indexSite].Hosts[indexHost].Status = "Reachable";
+                    Thread.Sleep(30000);
                     
                 }
                 else
                 {
                     Globals.GobalListSites.allSites[indexSite].Hosts[indexHost].LastFail = DateTime.Now.ToString("h:mm:ss tt");
                     Globals.GobalListSites.allSites[indexSite].Hosts[indexHost].Status = "Not Reachable";
-                   
+                    Thread.Sleep(1500);
+
                 }
             }
         }
