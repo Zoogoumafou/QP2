@@ -20,7 +20,7 @@ namespace QuickPing2.Utils
                 
                 foreach (JToken ip in site["ips"])
                 {
-                    hosts.Add(new Host { Name = ip["name"].ToString(), Address = ip["address"].ToString() });
+                    hosts.Add(new Host { Name = ip["name"].ToString(), Address = ip["address"].ToString(), Type = int.Parse(ip["type"].ToString()) });
                     Debug.WriteLine($"Adding new host {ip["name"]} with {ip["address"]} has ip.");
                 }
                 
