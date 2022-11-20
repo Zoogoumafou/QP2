@@ -10,7 +10,7 @@
              d:DesignHeight="200" d:DesignWidth="200">
     <Grid>
         <Controls:Tile 
-               x:Name="HostCard"
+               x:Name="HostCardTile"
                Title="Name"
                Width="200"
                Height="200"
