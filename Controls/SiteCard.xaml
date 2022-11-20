@@ -10,26 +10,44 @@
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              d:DesignHeight="200" d:DesignWidth="400">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
         <Controls:Tile 
-               Title="Website"
+               Grid.Column="0"
+               Grid.ColumnSpan="3"
+               Grid.Row="0"
+               Grid.RowSpan="3"
+               Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+               Background="Orange"
                Width="400"
                Height="200"
-               Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-               Background="Teal"
-               HorizontalTitleAlignment="Center">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <iconPacks:PackIconFontAwesome 
-                    Grid.Row="0"
-                    Grid.RowSpan="2"
-                    Width="80"
-                    Height="80"
-                    Kind="SitemapSolid" />
-            </Grid>
-            
+               HorizontalTitleAlignment="Right">
+            <iconPacks:PackIconJamIcons 
+                Width="100"
+                Height="100"
+                Kind="SitemapF" />
         </Controls:Tile>
+        <Label x:Name="SiteNameLbl"
+            Grid.Column="1"
+            Grid.Row="3"
+            Content="SiteName"
+            FontFamily="Arial Nova"
+            FontSize="16"
+            Foreground="White"
+            HorizontalAlignment="Center"/>
+        <Controls:MetroProgressBar x:Name="ScoreSiteProgressBar"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Background="LightBlue"
+            Foreground="Teal"
+            Value="50"/>
     </Grid>
 </UserControl>
