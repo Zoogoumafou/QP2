@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="QuickPing2.Controls.SiteCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuickPing2.Controls"
+             xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" 
+             mc:Ignorable="d"
+             xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             d:DesignHeight="200" d:DesignWidth="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Controls:Tile 
+               Grid.Column="0"
+               Grid.ColumnSpan="3"
+               Grid.Row="0"
+               Grid.RowSpan="3"
+               Controls:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+               Background="Orange"
+               Width="400"
+               Height="200"
+               HorizontalTitleAlignment="Right">
+            <iconPacks:PackIconJamIcons 
+                Width="100"
+                Height="100"
+                Kind="SitemapF" />
+        </Controls:Tile>
+        <Label x:Name="SiteNameLbl"
+            Grid.Column="1"
+            Grid.Row="3"
+            Content="SiteName"
+            FontFamily="Arial Nova"
+            FontSize="16"
+            Foreground="White"
+            HorizontalAlignment="Center"/>
+        <Controls:MetroProgressBar x:Name="ScoreSiteProgressBar"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Background="LightBlue"
+            Foreground="Teal"
+            Value="50"/>
+    </Grid>
+</UserControl>

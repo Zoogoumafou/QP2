@@ -17,8 +17,10 @@ namespace QuickPing2.Classs
         public string? LastSucces { get; set; }
 
         public string? LastFail { get; set; }
-        
- 
+
+        public int? Type { get; set; }
+
+
 
     }
 }

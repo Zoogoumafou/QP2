@@ -8,20 +8,23 @@
         mc:Ignorable="d"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-        Title="Quick Ping" Height="450" Width="800">
+        Title="Quick Ping" Height="450" Width="800"
+        Closing="MetroWindow_Closing">
 
     <Controls:MetroWindow.Resources>
         <ResourceDictionary>
 
-            <DataTemplate x:Key="HamburgerMenuItem" DataType="{x:Type Controls:HamburgerMenuGlyphItem}">
+            <DataTemplate x:Key="HamburgerMenuItem" DataType="{x:Type Controls:HamburgerMenuIconItem}">
                 <DockPanel Height="48" LastChildFill="True">
                     <Grid x:Name="IconPart"
               Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Controls:HamburgerMenu}}, Path=CompactPaneLength}"
               DockPanel.Dock="Left">
-                        <Image Margin="12"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
-                 Source="{Binding Glyph}" />
+                        <ContentControl x:Name="IconPart1"
+                        Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Controls:HamburgerMenu}}, Path=CompactPaneLength}"
+                        Content="{Binding Icon}"
+                        DockPanel.Dock="Left"
+                        Focusable="False"
+                        IsTabStop="False" />
                     </Grid>
                     <TextBlock x:Name="TextPart"
                    VerticalAlignment="Center"
@@ -80,23 +83,66 @@
                           HamburgerWidth="48"
                           ItemInvoked="HamburgerMenuControl_OnItemInvoked"
                           ItemTemplate="{StaticResource HamburgerMenuItem}"
+<<<<<<< HEAD
                           OptionsItemTemplate="{StaticResource HamburgerOptionsMenuItem}">
+=======
+                          OptionsItemTemplate="{StaticResource HamburgerOptionsMenuItem}"
+                          Style="{StaticResource MahApps.Styles.HamburgerMenu.CreatorsUpdate}">
+>>>>>>> master
 
             <!--  Header  -->
             <Controls:HamburgerMenu.HamburgerMenuHeaderTemplate>
                 <DataTemplate>
-                    <TextBlock HorizontalAlignment="Center"
+                    <TextBlock HorizontalAlignment="Left"
                    VerticalAlignment="Center"
                    FontSize="16"
-                   Foreground="White"
-                   Text="Pictures" />
+                   Foreground="Black"
+                   Text="Menu" />
                 </DataTemplate>
             </Controls:HamburgerMenu.HamburgerMenuHeaderTemplate>
 
             <!--  Items  -->
             <Controls:HamburgerMenu.ItemsSource>
                 <Controls:HamburgerMenuItemCollection>
-                    <Controls:HamburgerMenuIconItem Label="About" Icon="Bug"/>
+
+                    <Controls:HamburgerMenuIconItem Label="Dashboard">
+                        <Controls:HamburgerMenuIconItem.Icon>
+                            <iconPacks:PackIconCoolicons 
+                                        Kind="Dashboard" 
+                                        Width="22"
+                                        Height="22"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"/>
+                        </Controls:HamburgerMenuIconItem.Icon>
+                        <Controls:HamburgerMenuIconItem.Tag>
+                            <TextBlock HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="28"
+                       FontWeight="Bold">
+                Dashboard
+                            </TextBlock>
+                        </Controls:HamburgerMenuIconItem.Tag>
+                    </Controls:HamburgerMenuIconItem>
+
+                    <Controls:HamburgerMenuIconItem Label="History">
+                        <Controls:HamburgerMenuIconItem.Icon>
+                            <iconPacks:PackIconCodicons 
+                                        Kind="History" 
+                                        Width="22"
+                                        Height="22"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"/>
+                        </Controls:HamburgerMenuIconItem.Icon>
+                        <Controls:HamburgerMenuIconItem.Tag>
+                            <TextBlock HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="28"
+                       FontWeight="Bold">
+                History
+                            </TextBlock>
+                        </Controls:HamburgerMenuIconItem.Tag>
+                    </Controls:HamburgerMenuIconItem>
+
                 </Controls:HamburgerMenuItemCollection>
             </Controls:HamburgerMenu.ItemsSource>
 
@@ -104,20 +150,20 @@
             <Controls:HamburgerMenu.OptionsItemsSource>
                 <Controls:HamburgerMenuItemCollection>
 
-                    <Controls:HamburgerMenuIconItem Label="About">
+                    <Controls:HamburgerMenuIconItem Label="Setting">
                         <Controls:HamburgerMenuIconItem.Icon>
                             <iconPacks:PackIconMaterial Width="22"
                                         Height="22"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
-                                        Kind="Help" />
+                                        Kind="Cog" />
                         </Controls:HamburgerMenuIconItem.Icon>
                         <Controls:HamburgerMenuIconItem.Tag>
                             <TextBlock HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontSize="28"
                        FontWeight="Bold">
-                About
+                Setting
                             </TextBlock>
                         </Controls:HamburgerMenuIconItem.Tag>
                     </Controls:HamburgerMenuIconItem>
@@ -133,16 +179,6 @@
                             <RowDefinition Height="48" />
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                        <Border Grid.Row="0"
-                  Margin="-1 0 -1 0"
-                  Background="#7A7A7A">
-                            <TextBlock x:Name="Header"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       FontSize="24"
-                       Foreground="White"
-                       Text="{Binding Label}" />
-                        </Border>
                         <Controls:TransitioningContentControl Grid.Row="1"
                                                 Content="{Binding}"
                                                 RestartTransitionOnContentChange="True"

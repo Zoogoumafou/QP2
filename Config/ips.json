@@ -12,7 +12,8 @@
         "ips": [
           {
             "name": "GTW",
-            "address": "192.168.1.1"
+            "address": "192.168.1.1",
+            "type": "0"
           }
         ]
       },
@@ -26,7 +27,8 @@
         "ips": [
           {
             "name": "DEV2",
-            "address": "172.26.0.2"
+            "address": "172.26.0.2",
+            "type": "3"
           }
         ]
       },
@@ -35,7 +37,8 @@
         "ips": [
           {
             "name": "Google DNS",
-            "address": "8.8.8.8"
+            "address": "8.8.8.8",
+            "type": "2"
           }
         ]
       }
