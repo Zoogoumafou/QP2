@@ -83,12 +83,9 @@
                           HamburgerWidth="48"
                           ItemInvoked="HamburgerMenuControl_OnItemInvoked"
                           ItemTemplate="{StaticResource HamburgerMenuItem}"
-<<<<<<< HEAD
-                          OptionsItemTemplate="{StaticResource HamburgerOptionsMenuItem}">
-=======
                           OptionsItemTemplate="{StaticResource HamburgerOptionsMenuItem}"
                           Style="{StaticResource MahApps.Styles.HamburgerMenu.CreatorsUpdate}">
->>>>>>> master
+
 
             <!--  Header  -->
             <Controls:HamburgerMenu.HamburgerMenuHeaderTemplate>

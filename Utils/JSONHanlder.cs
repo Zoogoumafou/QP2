@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Runtime.CompilerServices;
 using Newtonsoft.Json.Linq;
 using QuickPing2.Classs;
 
